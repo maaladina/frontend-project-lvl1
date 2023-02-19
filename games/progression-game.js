@@ -20,8 +20,8 @@ const progressionGame = () => {
   for (let i = 0; i < 3; i += 1) {
     const firstElement = Math.round(Math.random() * 100);
     const interval = Math.round(Math.random() * 10);
-    const randomIndex = Math.round(Math.random() * 9);
     const progressionLength = Math.round(Math.random() * 5) + 5;
+    const randomIndex = Math.round(Math.random() * (progressionLength - 1));
     const [progression, rightAnswer] = generateProgression(firstElement, interval, randomIndex, progressionLength);
     const question = `Question: ${progression}`;
     if (!askAndCheckQuestion(name, question, rightAnswer)) {
