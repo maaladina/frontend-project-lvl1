@@ -1,10 +1,10 @@
 import greet from '../src/cli.js';
 import askAndCheckQuestion from '../src/index.js';
 
-const generateProgression = (firstElement, interval, randomIndex, progressionLength) => {
+const generateProgression = (first, interval, randomIndex, progrLen) => {
   const progression = [];
-  for (let i = 0; i < progressionLength; i += 1) {
-    const element = firstElement + (interval * i);
+  for (let i = 0; i < progrLen; i += 1) {
+    const element = first + (interval * i);
     progression.push(element);
   }
   const rightAnswer = progression[randomIndex];
@@ -18,11 +18,11 @@ const progressionGame = () => {
   console.log('What number is missing in the progression?');
   let score = 0;
   for (let i = 0; i < 3; i += 1) {
-    const firstElement = Math.round(Math.random() * 100);
+    const first = Math.round(Math.random() * 100);
     const interval = Math.round(Math.random() * 10);
-    const progressionLength = Math.round(Math.random() * 5) + 5;
-    const randomIndex = Math.round(Math.random() * (progressionLength - 1));
-    const [progression, rightAnswer] = generateProgression(firstElement, interval, randomIndex, progressionLength);
+    const progrLen = Math.round(Math.random() * 5) + 5;
+    const randomIndex = Math.round(Math.random() * (progrLen - 1));
+    const [progression, rightAnswer] = generateProgression(first, interval, randomIndex, progrLen);
     const question = `Question: ${progression}`;
     if (!askAndCheckQuestion(name, question, rightAnswer)) {
       break;
