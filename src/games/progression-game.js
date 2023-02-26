@@ -1,5 +1,5 @@
-import greet from '../src/cli.js';
-import askAndCheckQuestion from '../src/index.js';
+import greet from '../cli.js';
+import askAndCheckQuestion from '../index.js';
 
 const generateProgression = (first, interval, randomIndex, progrLen) => {
   const progression = [];

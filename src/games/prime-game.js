@@ -1,5 +1,5 @@
-import greet from '../src/cli.js';
-import askAndCheckQuestion from '../src/index.js';
+import greet from '../cli.js';
+import askAndCheckQuestion from '../index.js';
 
 const isPrime = (number) => {
   if (number < 2) {
