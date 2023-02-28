@@ -1,9 +1,10 @@
-import greet from '../cli.js';
-import askAndCheckQuestion from '../index.js';
+import greetAndLoop from '../index.js';
 
-const getGreatestCommonDivisor = (number1, number2) => {
+const getQuestionAndRightAnswer = () => {
+  const number1 = Math.round(Math.random() * 100);
+  const number2 = Math.round(Math.random() * 100);
   let divider = 0;
-  let gcd = 0;
+  let greatestCommonDivisor = 0;
   if (number1 > number2) {
     divider = number2;
   } else if (number1 < number2) {
@@ -11,30 +12,18 @@ const getGreatestCommonDivisor = (number1, number2) => {
   }
   for (let i = divider; i > 0; i -= 1) {
     if (number1 % i === 0 && number2 % i === 0) {
-      gcd = i;
+      greatestCommonDivisor = i;
       break;
     }
   }
-  return gcd;
+  const rightAnswer = greatestCommonDivisor.toString();
+  const question = `Question: ${number1} ${number2}`;
+  return [question, rightAnswer];
 };
 
 const gcdGame = () => {
-  const name = greet();
-  console.log('Find the greatest common divisor of given numbers.');
-  let score = 0;
-  for (let i = 0; i < 3; i += 1) {
-    const randomNumber1 = Math.round(Math.random() * 100);
-    const randomNumber2 = Math.round(Math.random() * 100);
-    const rightAnswer = getGreatestCommonDivisor(randomNumber1, randomNumber2).toString();
-    const question = `Question: ${randomNumber1} ${randomNumber2}`;
-    if (!askAndCheckQuestion(name, question, rightAnswer)) {
-      break;
-    }
-    score += 1;
-  }
-  if (score === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  const task = 'Find the greatest common divisor of given numbers.';
+  greetAndLoop(task, getQuestionAndRightAnswer);
 };
 
 export default gcdGame;

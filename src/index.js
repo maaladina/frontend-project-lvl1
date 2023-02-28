@@ -1,6 +1,8 @@
 import readlineSync from 'readline-sync';
+import greet from './cli.js';
 
-const askAndCheckQuestion = (name, question, rightAnswer) => {
+const askAndCheckQuestion = (name, questionAndAnswer) => {
+  const [question, rightAnswer] = questionAndAnswer();
   const userAnswer = readlineSync.question(`${question} `);
   if (userAnswer === rightAnswer) {
     console.log(`Your answer: '${userAnswer}'\nCorrect!`);
@@ -10,4 +12,19 @@ const askAndCheckQuestion = (name, question, rightAnswer) => {
   return false;
 };
 
-export default askAndCheckQuestion;
+const greetAndLoop = (task, questionAndAnswer) => {
+  const name = greet();
+  console.log(task);
+  let score = 0;
+  for (let i = 0; i < 3; i += 1) {
+    if (!askAndCheckQuestion(name, questionAndAnswer)) {
+      break;
+    }
+    score += 1;
+  }
+  if (score === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
+};
+
+export default greetAndLoop;
