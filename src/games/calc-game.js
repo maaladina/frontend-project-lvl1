@@ -1,14 +1,10 @@
 import { randomNumber, greetAndLoop } from '../index.js';
 
-const getRandomOperator = () => {
-  const operators = ['+', '-', '*'];
-  return operators[randomNumber(2)];
-};
-
 const getQuestionAndRightAnswer = () => {
   const randomNumber1 = randomNumber(100);
   const randomNumber2 = randomNumber(100);
-  const operator = getRandomOperator();
+  const operators = ['+', '-', '*'];
+  const operator = operators[randomNumber(2)];
   const expression = `${randomNumber1} ${operator} ${randomNumber2}`;
 
   let value = null;
