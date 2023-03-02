@@ -1,8 +1,8 @@
-import greetAndLoop from '../index.js';
+import { randomNumber, greetAndLoop } from '../index.js';
 
 const getQuestionAndRightAnswer = () => {
-  const number1 = Math.round(Math.random() * 100);
-  const number2 = Math.round(Math.random() * 100);
+  const number1 = randomNumber(100);
+  const number2 = randomNumber(100);
   let divider = 0;
   let greatestCommonDivisor = 0;
   if (number1 > number2) {

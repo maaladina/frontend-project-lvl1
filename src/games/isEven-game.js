@@ -1,10 +1,10 @@
-import greetAndLoop from '../index.js';
+import { randomNumber, greetAndLoop } from '../index.js';
 
 const getQuestionAndRightAnswer = () => {
-  const randomNumber = Math.round(Math.random() * 100);
-  const question = `Question: ${randomNumber}`;
+  const randomNumber1 = randomNumber(100);
+  const question = `Question: ${randomNumber1}`;
   let rightAnswer = '';
-  if (randomNumber % 2 === 0) {
+  if (randomNumber1 % 2 === 0) {
     rightAnswer = 'yes';
   } else {
     rightAnswer = 'no';

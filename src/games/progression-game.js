@@ -1,4 +1,4 @@
-import greetAndLoop from '../index.js';
+import { randomNumber, greetAndLoop } from '../index.js';
 
 const generateProgression = (first, interval, randomIndex, progrLen) => {
   const progression = [];
@@ -13,10 +13,10 @@ const generateProgression = (first, interval, randomIndex, progrLen) => {
 };
 
 const getQuestionAndRightAnswer = () => {
-  const first = Math.round(Math.random() * 100);
-  const interval = Math.round(Math.random() * 10);
-  const progrLen = Math.round(Math.random() * 5) + 5;
-  const randomIndex = Math.round(Math.random() * (progrLen - 1));
+  const first = randomNumber(100);
+  const interval = randomNumber(10);
+  const progrLen = randomNumber(5, 5);
+  const randomIndex = randomNumber(progrLen - 1);
   const [progression, rightAnswer] = generateProgression(first, interval, randomIndex, progrLen);
   const question = `Question: ${progression}`;
   return [question, rightAnswer];

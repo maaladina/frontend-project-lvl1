@@ -1,6 +1,11 @@
 import readlineSync from 'readline-sync';
 
-const greetAndLoop = (task, questionAndAnswer) => {
+export const randomNumber = (upperBound, lowerBound = 0) => {
+  const random = Math.round(Math.random() * upperBound) + lowerBound;
+  return random;
+};
+
+export const greetAndLoop = (task, questionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
@@ -21,5 +26,3 @@ const greetAndLoop = (task, questionAndAnswer) => {
     console.log(`Congratulations, ${name}!`);
   }
 };
-
-export default greetAndLoop;

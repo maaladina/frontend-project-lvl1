@@ -1,4 +1,4 @@
-import greetAndLoop from '../index.js';
+import { randomNumber, greetAndLoop } from '../index.js';
 
 const isPrime = (number) => {
   if (number < 2) {
@@ -15,9 +15,9 @@ const isPrime = (number) => {
 };
 
 const getQuestionAndRightAnswer = () => {
-  const randomNumber = Math.round(Math.random() * 100);
-  const question = `Question: ${randomNumber}`;
-  const rightAnswer = isPrime(randomNumber);
+  const randomNumber1 = randomNumber(100);
+  const question = `Question: ${randomNumber1}`;
+  const rightAnswer = isPrime(randomNumber1);
   return [question, rightAnswer];
 };
 

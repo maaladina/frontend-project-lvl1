@@ -1,13 +1,13 @@
-import greetAndLoop from '../index.js';
+import { randomNumber, greetAndLoop } from '../index.js';
 
 const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
-  return operators[Math.round(Math.random() * 2)];
+  return operators[randomNumber(2)];
 };
 
 const getQuestionAndRightAnswer = () => {
-  const randomNumber1 = Math.round(Math.random() * 100);
-  const randomNumber2 = Math.round(Math.random() * 100);
+  const randomNumber1 = randomNumber(100);
+  const randomNumber2 = randomNumber(100);
   const operator = getRandomOperator();
   const expression = `${randomNumber1} ${operator} ${randomNumber2}`;
 
