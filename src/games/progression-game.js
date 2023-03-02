@@ -1,15 +1,12 @@
 import { randomNumber, greetAndLoop } from '../index.js';
 
-const generateProgression = (first, interval, randomIndex, progrLen) => {
+const generateProgression = (first, interval, progrLen) => {
   const progression = [];
   for (let i = 0; i < progrLen; i += 1) {
     const element = first + (interval * i);
     progression.push(element);
   }
-  const rightAnswer = progression[randomIndex];
-  progression[randomIndex] = '..';
-  const newProgression = progression.join(' ');
-  return [newProgression, rightAnswer.toString()];
+  return progression;
 };
 
 const getQuestionAndRightAnswer = () => {
@@ -17,8 +14,12 @@ const getQuestionAndRightAnswer = () => {
   const interval = randomNumber(10);
   const progrLen = randomNumber(5, 5);
   const randomIndex = randomNumber(progrLen - 1);
-  const [progression, rightAnswer] = generateProgression(first, interval, randomIndex, progrLen);
-  const question = `Question: ${progression}`;
+  const progression = generateProgression(first, interval, progrLen);
+  const missingElement = progression[randomIndex];
+  const rightAnswer = missingElement.toString();
+  progression[randomIndex] = '..';
+  const newProgression = progression.join(' ');
+  const question = `Question: ${newProgression}`;
   return [question, rightAnswer];
 };
 
