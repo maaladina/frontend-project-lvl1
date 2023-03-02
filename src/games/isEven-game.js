@@ -1,14 +1,16 @@
 import { randomNumber, greetAndLoop } from '../index.js';
 
-const getQuestionAndRightAnswer = () => {
-  const randomNumber1 = randomNumber(100);
-  const question = `Question: ${randomNumber1}`;
-  let rightAnswer = '';
-  if (randomNumber1 % 2 === 0) {
-    rightAnswer = 'yes';
-  } else {
-    rightAnswer = 'no';
+const isEven = (number) => {
+  if (number % 2 === 0) {
+    return 'yes';
   }
+  return 'no';
+};
+
+const getQuestionAndRightAnswer = () => {
+  const number = randomNumber(100);
+  const question = `Question: ${number}`;
+  const rightAnswer = isEven(number);
   return [question, rightAnswer];
 };
 

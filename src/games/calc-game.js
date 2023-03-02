@@ -1,25 +1,30 @@
 import { randomNumber, greetAndLoop } from '../index.js';
 
-const getQuestionAndRightAnswer = () => {
-  const randomNumber1 = randomNumber(100);
-  const randomNumber2 = randomNumber(100);
-  const operators = ['+', '-', '*'];
-  const operator = operators[randomNumber(2)];
-  const expression = `${randomNumber1} ${operator} ${randomNumber2}`;
-
+const getResult = (number1, number2, operator) => {
   let value = null;
   switch (operator) {
     case '+':
-      value = randomNumber1 + randomNumber2;
+      value = number1 + number2;
       break;
     case '-':
-      value = randomNumber1 - randomNumber2;
+      value = number1 - number2;
       break;
     default:
-      value = randomNumber1 * randomNumber2;
+      value = number1 * number2;
   }
+  return value;
+};
+
+const getQuestionAndRightAnswer = () => {
+  const number1 = randomNumber(100);
+  const number2 = randomNumber(100);
+  const operators = ['+', '-', '*'];
+  const operator = operators[randomNumber(2)];
+  const expression = `${number1} ${operator} ${number2}`;
+  const result = getResult(number1, number2, operator);
+  const rightAnswer = result.toString();
   const question = `Question: ${expression}`;
-  return [question, value.toString()];
+  return [question, rightAnswer];
 };
 
 const calcGame = () => {
