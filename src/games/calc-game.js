@@ -1,18 +1,15 @@
-import { randomNumber, greetAndLoop } from '../index.js';
+import greetAndLoop from '../index.js';
+import randomNumber from '../utils.js';
 
 const getResult = (number1, number2, operator) => {
-  let value = null;
   switch (operator) {
     case '+':
-      value = number1 + number2;
-      break;
+      return number1 + number2;
     case '-':
-      value = number1 - number2;
-      break;
+      return number1 - number2;
     default:
-      value = number1 * number2;
+      return number1 * number2;
   }
-  return value;
 };
 
 const getQuestionAndRightAnswer = () => {
@@ -23,8 +20,7 @@ const getQuestionAndRightAnswer = () => {
   const expression = `${number1} ${operator} ${number2}`;
   const result = getResult(number1, number2, operator);
   const rightAnswer = result.toString();
-  const question = `Question: ${expression}`;
-  return [question, rightAnswer];
+  return [expression, rightAnswer];
 };
 
 const calcGame = () => {

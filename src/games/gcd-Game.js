@@ -1,4 +1,5 @@
-import { randomNumber, greetAndLoop } from '../index.js';
+import greetAndLoop from '../index.js';
+import randomNumber from '../utils.js';
 
 const getGreatestCommonDivisor = (number1, number2) => {
   let divider = 0;
@@ -22,7 +23,7 @@ const getQuestionAndRightAnswer = () => {
   const number2 = randomNumber(100);
   const greatestCommonDivisor = getGreatestCommonDivisor(number1, number2);
   const rightAnswer = greatestCommonDivisor.toString();
-  const question = `Question: ${number1} ${number2}`;
+  const question = `${number1} ${number2}`;
   return [question, rightAnswer];
 };
 

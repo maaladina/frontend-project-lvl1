@@ -1,4 +1,5 @@
-import { randomNumber, greetAndLoop } from '../index.js';
+import greetAndLoop from '../index.js';
+import randomNumber from '../utils.js';
 
 const generateProgression = (first, interval, progrLen) => {
   const progression = [];
@@ -19,8 +20,7 @@ const getQuestionAndRightAnswer = () => {
   const rightAnswer = missingElement.toString();
   progression[randomIndex] = '..';
   const newProgression = progression.join(' ');
-  const question = `Question: ${newProgression}`;
-  return [question, rightAnswer];
+  return [newProgression, rightAnswer];
 };
 
 const progressionGame = () => {

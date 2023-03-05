@@ -1,12 +1,12 @@
-import { randomNumber, greetAndLoop } from '../index.js';
+import greetAndLoop from '../index.js';
+import randomNumber from '../utils.js';
 
 const isEven = (number) => number % 2 === 0;
 
 const getQuestionAndRightAnswer = () => {
   const number = randomNumber(100);
-  const question = `Question: ${number}`;
   const rightAnswer = isEven(number) ? 'yes' : 'no';
-  return [question, rightAnswer];
+  return [number, rightAnswer];
 };
 
 const isEvenGame = () => {
