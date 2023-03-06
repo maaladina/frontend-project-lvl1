@@ -5,14 +5,15 @@ const greetAndLoop = (task, questionAndAnswer) => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log(task);
-  const roundCount = 3;
-  for (let i = 0; i < roundCount; i += 1) {
+  const roundsCount = 3;
+  for (let i = 0; i < roundsCount; i += 1) {
     const [question, rightAnswer] = questionAndAnswer();
-    const userAnswer = readlineSync.question(`Question: ${question} `);
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer !== rightAnswer) {
-      return console.log(`Your answer:${userAnswer}.\n'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
+      return console.log(`${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
     }
-    console.log(`Your answer: '${userAnswer}'\nCorrect!`);
+    console.log('Correct!');
   }
   return console.log(`Congratulations, ${name}!`);
 };
